@@ -1,252 +1,269 @@
-import React, { useState, useEffect } from 'react';
-import { computeDashboardMetrics } from './dashboardDataService';
-import { StatCard } from './StatCard';
-import { CityBarChart } from './CityBarChart';
-import { CommunityChallenge } from './CommunityChallenge';
-import { SiteListTable } from './SiteListTable';
-import { ObservationsFeed } from './ObservationsFeed';
+import React, { useState } from 'react';
 
-/**
- * Main OneAquaHealth Dashboard Feature Component
- */
-export function Dashboard({ initialSites = [], initialObservations = [] }) {
-  const [sites, setSites] = useState(initialSites);
-  const [observations, setObservations] = useState(initialObservations);
-  const [loading, setLoading] = useState(!initialSites.length);
-  const [error, setError] = useState(null);
-  const [selectedCity, setSelectedCity] = useState('all');
-  const [selectedSiteModal, setSelectedSiteModal] = useState(null);
+export function Dashboard({ sites, selectedCity, onStartCheck, onSelectSite }) {
+  const [statusFilter, setStatusFilter] = useState('ALL'); // 'ALL' | 'FRESH' | 'DUE' | 'STALE'
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // If no props passed, fetch from local JSON files
-  useEffect(() => {
-    if (sites.length > 0 && observations.length > 0) return;
+  // 1. Data synchronized strictly with selected city
+  const citySites = sites.filter((s) => s.city === selectedCity);
+  const totalSites = citySites.length;
 
-    async function loadData() {
-      try {
-        setLoading(true);
-        const [sitesRes, obsRes] = await Promise.all([
-          fetch('/data/sites.json'),
-          fetch('/data/seed-observations.json')
-        ]);
+  const freshSites = citySites.filter((s) => s.daysSinceLastCheck !== null && s.daysSinceLastCheck < 30);
+  const dueSoonSites = citySites.filter((s) => s.daysSinceLastCheck !== null && s.daysSinceLastCheck >= 30 && s.daysSinceLastCheck <= 90);
+  const staleSites = citySites.filter((s) => s.daysSinceLastCheck === null || s.daysSinceLastCheck > 90);
 
-        if (!sitesRes.ok || !obsRes.ok) {
-          throw new Error('Failed to load JSON data files from data/ directory');
-        }
+  const coveragePercent = totalSites ? Math.round((freshSites.length / totalSites) * 100) : 0;
 
-        const sitesData = await sitesRes.json();
-        const obsData = await obsRes.json();
-        setSites(sitesData);
-        setObservations(obsData);
-        setError(null);
-      } catch (err) {
-        console.warn('Network fetch fallback to bundled data:', err.message);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
+  // Filtered Table Data
+  const filteredSites = citySites.filter((site) => {
+    const matchesSearch =
+      site.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      site.waterBody.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      site.id.toLowerCase().includes(searchQuery.toLowerCase());
 
-    loadData();
-  }, [sites.length, observations.length]);
+    if (!matchesSearch) return false;
 
-  // Compute reactive metrics
-  const metrics = computeDashboardMetrics(sites, observations, selectedCity);
-
-  const citiesList = [
-    { id: 'all', label: 'All 5 Pilot Basins' },
-    { id: 'coimbra', label: 'Coimbra (Portugal)' },
-    { id: 'benevento', label: 'Benevento (Italy)' },
-    { id: 'ghent', label: 'Ghent (Belgium)' },
-    { id: 'oslo', label: 'Oslo (Norway)' },
-    { id: 'toulouse', label: 'Toulouse (France)' },
-  ];
-
-  if (loading) {
-    return (
-      <div className="min-h-[400px] flex items-center justify-center">
-        <div className="text-center space-y-3">
-          <div className="w-10 h-10 border-4 border-sky-500 border-t-transparent rounded-full animate-spin mx-auto" />
-          <p className="text-sm font-medium text-slate-500">Loading OneAquaHealth stream telemetry...</p>
-        </div>
-      </div>
-    );
-  }
+    if (statusFilter === 'FRESH') return site.daysSinceLastCheck !== null && site.daysSinceLastCheck < 30;
+    if (statusFilter === 'DUE') return site.daysSinceLastCheck !== null && site.daysSinceLastCheck >= 30 && site.daysSinceLastCheck <= 90;
+    if (statusFilter === 'STALE') return site.daysSinceLastCheck === null || site.daysSinceLastCheck > 90;
+    return true;
+  });
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto px-4 sm:px-6 py-6">
-      {/* Top Banner / Navigation */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
-        <div>
-          <div className="flex items-center space-x-3">
-            <span className="text-3xl">💧</span>
-            <div>
-              <h1 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                OneAquaHealth Surveillance Dashboard
-              </h1>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                Citizen Science freshwater ecosystem monitoring across 100 European pilot sites
-              </p>
-            </div>
+    <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      
+      {/* 4 Stat Cards */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px' }}>
+        <div style={{ backgroundColor: '#ffffff', padding: '18px', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.03)' }}>
+          <div style={{ fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase' }}>
+            Data Freshness
+          </div>
+          <div style={{ fontSize: '28px', fontWeight: '800', color: '#047857', marginTop: '6px' }}>
+            {coveragePercent}%
+          </div>
+          <div style={{ fontSize: '13px', color: '#475569', marginTop: '4px' }}>
+            {freshSites.length} of {totalSites} reaches verified &lt;30d
           </div>
         </div>
 
-        {/* City Filter Selector */}
-        <div className="flex items-center space-x-3">
-          <label htmlFor="city-filter" className="text-xs font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">
-            Filter Basin:
-          </label>
-          <select
-            id="city-filter"
-            value={selectedCity}
-            onChange={(e) => setSelectedCity(e.target.value)}
-            className="text-xs font-semibold rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 px-3.5 py-2 shadow-xs focus:ring-2 focus:ring-sky-500 focus:outline-hidden"
-          >
-            {citiesList.map(c => (
-              <option key={c.id} value={c.id}>{c.label}</option>
-            ))}
-          </select>
+        <div style={{ backgroundColor: '#ffffff', padding: '18px', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.03)' }}>
+          <div style={{ fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase' }}>
+            Due for Revisit
+          </div>
+          <div style={{ fontSize: '28px', fontWeight: '800', color: '#b45309', marginTop: '6px' }}>
+            {dueSoonSites.length}
+          </div>
+          <div style={{ fontSize: '13px', color: '#475569', marginTop: '4px' }}>
+            Inspected 30–90 days ago
+          </div>
+        </div>
 
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 dark:bg-emerald-950/40 dark:border-emerald-800 dark:text-emerald-300">
-            ● Oct 2026 Seed
+        <div style={{ backgroundColor: '#ffffff', padding: '18px', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.03)' }}>
+          <div style={{ fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase' }}>
+            Stale / Unchecked
+          </div>
+          <div style={{ fontSize: '28px', fontWeight: '800', color: '#b91c1c', marginTop: '6px' }}>
+            {staleSites.length}
+          </div>
+          <div style={{ fontSize: '13px', color: '#475569', marginTop: '4px' }}>
+            Overdue (&gt;90d or no baseline)
+          </div>
+        </div>
+
+        <div style={{ backgroundColor: '#ffffff', padding: '18px', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.03)' }}>
+          <div style={{ fontSize: '12px', fontWeight: '700', color: '#64748b', textTransform: 'uppercase' }}>
+            Monitoring Target
+          </div>
+          <div style={{ fontSize: '28px', fontWeight: '800', color: '#2563eb', marginTop: '6px' }}>
+            80%
+          </div>
+          <div style={{ fontSize: '13px', color: '#475569', marginTop: '4px' }}>
+            Citywide shared coverage goal
+          </div>
+        </div>
+      </div>
+
+      {/* Freshness Distribution Progress Bar */}
+      <div style={{ backgroundColor: '#ffffff', padding: '18px', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.03)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+          <span style={{ fontWeight: '700', fontSize: '14px', color: '#0f172a' }}>
+            {selectedCity} Catchment Freshness Distribution
+          </span>
+          <span style={{ fontSize: '13px', color: '#64748b' }}>
+            Total: {totalSites} monitoring sites
           </span>
         </div>
-      </div>
 
-      {/* 3 Core Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {/* Card 1: Coverage % */}
-        <StatCard
-          title="Coverage Rate"
-          value={`${metrics.coveragePercent}%`}
-          unit=""
-          subtext={`${metrics.checkedSitesCount} of ${metrics.totalSites} sites verified`}
-          icon="🎯"
-          trend="+14% this month"
-          status={metrics.coveragePercent >= 70 ? 'success' : 'warning'}
-        />
-
-        {/* Card 2: Never-Checked Sites */}
-        <StatCard
-          title="Never-Checked Sites"
-          value={metrics.neverCheckedCount}
-          unit="sites"
-          subtext={`${metrics.neverCheckedPercent}% of basin pending first visit`}
-          icon="⚠️"
-          trend="Needs Volunteers"
-          status={metrics.neverCheckedCount > 20 ? 'alert' : 'warning'}
-        />
-
-        {/* Card 3: Avg Days Since Check */}
-        <StatCard
-          title="Avg Days Since Check"
-          value={metrics.avgDaysSinceCheck}
-          unit="days"
-          subtext="Data freshness across monitored reaches"
-          icon="⏱️"
-          trend="Optimal < 14d"
-          status={metrics.avgDaysSinceCheck <= 14 ? 'success' : 'warning'}
-        />
-      </div>
-
-      {/* Community Challenge Progress Bar */}
-      <CommunityChallenge challenge={metrics.communityChallenge} />
-
-      {/* Main Content Grid: Recharts Bar Chart & Observations Feed */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left Column: Recharts City Bar Chart (7 cols) */}
-        <div className="lg:col-span-7">
-          <CityBarChart
-            data={metrics.cityChartData}
-            onCityClick={(city) => setSelectedCity(city.toLowerCase())}
-          />
+        {/* Visual Stacked Bar */}
+        <div style={{ height: '14px', width: '100%', backgroundColor: '#f1f5f9', borderRadius: '8px', overflow: 'hidden', display: 'flex' }}>
+          <div style={{ width: `${(freshSites.length / totalSites) * 100}%`, backgroundColor: '#10b981' }} title={`Fresh: ${freshSites.length}`}></div>
+          <div style={{ width: `${(dueSoonSites.length / totalSites) * 100}%`, backgroundColor: '#f59e0b' }} title={`Due Soon: ${dueSoonSites.length}`}></div>
+          <div style={{ width: `${(staleSites.length / totalSites) * 100}%`, backgroundColor: '#ef4444' }} title={`Stale: ${staleSites.length}`}></div>
         </div>
 
-        {/* Right Column: Live Seed Observations Feed (5 cols) */}
-        <div className="lg:col-span-5">
-          <ObservationsFeed
-            observations={metrics.filteredObservations}
-            onSelectSiteId={(siteId) => {
-              const s = sites.find(item => item.id === siteId);
-              if (s) setSelectedSiteModal(s);
-            }}
-          />
+        {/* Legend under bar */}
+        <div style={{ display: 'flex', gap: '20px', marginTop: '10px', fontSize: '12px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ width: '10px', height: '10px', borderRadius: '2px', backgroundColor: '#10b981' }}></span>
+            <span>Fresh &lt;30d: <strong>{freshSites.length}</strong></span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ width: '10px', height: '10px', borderRadius: '2px', backgroundColor: '#f59e0b' }}></span>
+            <span>Due Soon 30–90d: <strong>{dueSoonSites.length}</strong></span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ width: '10px', height: '10px', borderRadius: '2px', backgroundColor: '#ef4444' }}></span>
+            <span>Stale / Never: <strong>{staleSites.length}</strong></span>
+          </div>
         </div>
       </div>
 
-      {/* Full Width Section: Site Registry & Priority Alerts Table */}
-      <SiteListTable
-        sites={metrics.filteredSites}
-        observations={observations}
-        onSelectSite={(site) => setSelectedSiteModal(site)}
-      />
+      {/* Pilot Site Registry Table */}
+      <div style={{ backgroundColor: '#ffffff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.03)', overflow: 'hidden' }}>
+        
+        {/* Table Controls */}
+        <div style={{ padding: '16px 20px', borderBottom: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
+          <div>
+            <h3 style={{ margin: '0 0 2px 0', fontSize: '16px', fontWeight: '800', color: '#0f172a' }}>
+              {selectedCity} Stream Registry ({filteredSites.length})
+            </h3>
+            <p style={{ margin: 0, fontSize: '12px', color: '#64748b' }}>
+              Filter by data age or search by river reach
+            </p>
+          </div>
 
-      {/* Site Detail Modal / Inspection Drawer */}
-      {selectedSiteModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 space-y-4">
-            <div className="flex items-start justify-between">
-              <div>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-sky-600 dark:text-sky-400 font-bold">
-                  {selectedSiteModal.id} • {selectedSiteModal.city}, {selectedSiteModal.country}
-                </span>
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-0.5">
-                  {selectedSiteModal.name}
-                </h3>
-                <p className="text-xs text-slate-500">Water body: {selectedSiteModal.waterBody}</p>
-              </div>
-              <button
-                onClick={() => setSelectedSiteModal(null)}
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 text-sm"
-              >
-                ✕
-              </button>
-            </div>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+            {/* Search */}
+            <input
+              type="text"
+              placeholder="Search stream or river..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              style={{
+                padding: '7px 12px',
+                borderRadius: '6px',
+                border: '1px solid #cbd5e1',
+                fontSize: '13px',
+                outline: 'none',
+              }}
+            />
 
-            <div className="space-y-2 text-xs border-y border-slate-100 dark:border-slate-800 py-3">
-              <div className="flex justify-between">
-                <span className="text-slate-500">Coordinates:</span>
-                <span className="font-mono">{selectedSiteModal.coordinates.lat}, {selectedSiteModal.coordinates.lng}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Stream Type:</span>
-                <span className="capitalize">{selectedSiteModal.streamType.replace('_', ' ')}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Accessibility:</span>
-                <span className="capitalize">{selectedSiteModal.accessibility.replace('_', ' ')}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Data Origin:</span>
-                <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono text-[10px]">
-                  {selectedSiteModal.source}
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200 mb-2">
-                Monitored Quality Parameters:
-              </h4>
-              <div className="flex flex-wrap gap-1.5">
-                {selectedSiteModal.targetParameters.map(param => (
-                  <span key={param} className="px-2 py-0.5 rounded-md bg-sky-50 dark:bg-sky-950 text-sky-700 dark:text-sky-300 text-[11px] font-mono">
-                    {param}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="pt-2 flex justify-end">
-              <button
-                onClick={() => setSelectedSiteModal(null)}
-                className="px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-xs font-semibold hover:opacity-90 transition-opacity"
-              >
-                Close Details
-              </button>
+            {/* Filter Buttons */}
+            <div style={{ display: 'flex', gap: '4px', backgroundColor: '#f1f5f9', padding: '3px', borderRadius: '6px' }}>
+              {[
+                { id: 'ALL', label: 'All' },
+                { id: 'FRESH', label: 'Fresh' },
+                { id: 'DUE', label: 'Due' },
+                { id: 'STALE', label: 'Stale' },
+              ].map((btn) => (
+                <button
+                  key={btn.id}
+                  onClick={() => setStatusFilter(btn.id)}
+                  style={{
+                    padding: '5px 10px',
+                    borderRadius: '4px',
+                    border: 'none',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    backgroundColor: statusFilter === btn.id ? '#ffffff' : 'transparent',
+                    color: statusFilter === btn.id ? '#0f172a' : '#64748b',
+                    boxShadow: statusFilter === btn.id ? '0 1px 2px rgba(0,0,0,0.1)' : 'none',
+                  }}
+                >
+                  {btn.label}
+                </button>
+              ))}
             </div>
           </div>
         </div>
-      )}
+
+        {/* Table */}
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '13px' }}>
+            <thead>
+              <tr style={{ backgroundColor: '#f8fafc', color: '#64748b', borderBottom: '1px solid #e2e8f0', fontSize: '12px', textTransform: 'uppercase' }}>
+                <th style={{ padding: '12px 18px' }}>Site ID</th>
+                <th style={{ padding: '12px 18px' }}>Reach & Waterbody</th>
+                <th style={{ padding: '12px 18px' }}>Type</th>
+                <th style={{ padding: '12px 18px' }}>Freshness Status</th>
+                <th style={{ padding: '12px 18px' }}>Last Rating</th>
+                <th style={{ padding: '12px 18px', textAlign: 'right' }}>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredSites.length === 0 ? (
+                <tr>
+                  <td colSpan="6" style={{ padding: '32px', textAlign: 'center', color: '#94a3b8' }}>
+                    No streams match your filter.
+                  </td>
+                </tr>
+              ) : (
+                filteredSites.map((site) => {
+                  const days = site.daysSinceLastCheck;
+                  const isFresh = days !== null && days < 30;
+                  const isDue = days !== null && days >= 30 && days <= 90;
+
+                  const statusBadge = isFresh
+                    ? { bg: '#d1fae5', text: '#065f46', label: `${days}d ago (Fresh)` }
+                    : isDue
+                    ? { bg: '#fef3c7', text: '#92400e', label: `${days}d ago (Due)` }
+                    : { bg: '#fee2e2', text: '#991b1b', label: days === null ? 'Never Checked' : `${days}d ago (Stale)` };
+
+                  return (
+                    <tr key={site.id} style={{ borderBottom: '1px solid #f1f5f9' }}>
+                      <td style={{ padding: '12px 18px', fontWeight: '600', color: '#475569' }}>
+                        {site.id}
+                      </td>
+                      <td style={{ padding: '12px 18px' }}>
+                        <div style={{ fontWeight: '700', color: '#0f172a' }}>{site.name}</div>
+                        <div style={{ fontSize: '12px', color: '#64748b' }}>🌊 {site.waterBody}</div>
+                      </td>
+                      <td style={{ padding: '12px 18px', color: '#475569', textTransform: 'capitalize' }}>
+                        {site.streamType?.replace('_', ' ')}
+                      </td>
+                      <td style={{ padding: '12px 18px' }}>
+                        <span
+                          style={{
+                            fontSize: '11px',
+                            fontWeight: '700',
+                            padding: '3px 8px',
+                            borderRadius: '9999px',
+                            backgroundColor: statusBadge.bg,
+                            color: statusBadge.text,
+                          }}
+                        >
+                          {statusBadge.label}
+                        </span>
+                      </td>
+                      <td style={{ padding: '12px 18px', fontWeight: '600', color: '#334155' }}>
+                        {site.lastRating || 'Unrecorded'}
+                      </td>
+                      <td style={{ padding: '12px 18px', textAlign: 'right' }}>
+                        <button
+                          onClick={() => onStartCheck?.(site)}
+                          style={{
+                            padding: '6px 12px',
+                            backgroundColor: '#10b981',
+                            color: '#ffffff',
+                            border: 'none',
+                            borderRadius: '6px',
+                            fontWeight: '600',
+                            fontSize: '12px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          Verify
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

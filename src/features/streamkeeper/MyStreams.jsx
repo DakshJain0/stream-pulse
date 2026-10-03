@@ -5,13 +5,13 @@ export function MyStreams({ sites, adoptedSiteIds, onToggleAdopt, onStartCheck, 
 
   return (
     <div style={{ marginTop: '16px' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '16px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
         <div>
           <h2 style={{ margin: '0 0 4px 0', fontSize: '22px', fontWeight: '800', color: '#0f172a' }}>
             ⭐ My Adopted Streams ({adoptedSites.length})
           </h2>
           <p style={{ margin: 0, fontSize: '13px', color: '#64748b' }}>
-            Keep your adopted reaches fresh over time. Submit a check whenever you visit!
+            Continuous monitoring prevents stale data. Aim to revisit your adopted reaches every 30 days!
           </p>
         </div>
       </div>
@@ -30,13 +30,32 @@ export function MyStreams({ sites, adoptedSiteIds, onToggleAdopt, onStartCheck, 
           <div style={{ fontSize: '36px', marginBottom: '12px' }}>🌊</div>
           <h4 style={{ margin: '0 0 6px 0', fontSize: '16px', color: '#0f172a' }}>You haven't adopted any streams yet</h4>
           <p style={{ margin: '0 0 16px 0', fontSize: '13px' }}>
-            Explore the <strong>Map & Quests</strong> tab and click <strong>"Adopt"</strong> on streams in your neighborhood!
+            Go to the <strong>Map & Quests</strong> tab and click <strong>"Adopt"</strong> on reaches you want to steward!
           </p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {adoptedSites.map((site) => {
-            const isFresh = site.daysSinceLastCheck !== null && site.daysSinceLastCheck < 30;
+            const days = site.daysSinceLastCheck;
+            const isFresh = days !== null && days < 30;
+
+            // Revisit window calculation (30-day recommended cycle)
+            let dueText = '';
+            let dueColor = '#047857';
+
+            if (days === null) {
+              dueText = '⚠️ Baseline check pending';
+              dueColor = '#b91c1c';
+            } else if (days === 0) {
+              dueText = 'Next check due in 30 days';
+              dueColor = '#047857';
+            } else if (days < 30) {
+              dueText = `Next check due in ${30 - days} days`;
+              dueColor = '#047857';
+            } else {
+              dueText = `Overdue by ${days - 30} days`;
+              dueColor = '#b91c1c';
+            }
 
             return (
               <div
@@ -51,11 +70,11 @@ export function MyStreams({ sites, adoptedSiteIds, onToggleAdopt, onStartCheck, 
                   border: '1px solid #e2e8f0',
                   boxShadow: '0 2px 4px rgba(0,0,0,0.03)',
                   flexWrap: 'wrap',
-                  gap: '12px',
+                  gap: '14px',
                 }}
               >
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                     <span style={{ fontWeight: '700', fontSize: '16px', color: '#0f172a' }}>{site.name}</span>
                     <span
                       style={{
@@ -67,12 +86,30 @@ export function MyStreams({ sites, adoptedSiteIds, onToggleAdopt, onStartCheck, 
                         fontWeight: '700',
                       }}
                     >
-                      {isFresh ? 'Fresh Data' : 'Needs Check'}
+                      {isFresh ? 'Fresh (<30d)' : 'Needs Check'}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: '11px',
+                        padding: '2px 8px',
+                        borderRadius: '9999px',
+                        backgroundColor: '#f1f5f9',
+                        color: '#475569',
+                        fontWeight: '600',
+                      }}
+                    >
+                      🔥 {days === 0 ? 'Active Streak: 1 Revisit' : 'Steward'}
                     </span>
                   </div>
-                  <div style={{ fontSize: '13px', color: '#475569', marginTop: '4px' }}>
-                    🌊 {site.waterBody} • {site.city} • Last check:{' '}
-                    <strong>{site.daysSinceLastCheck === null ? 'Never' : `${site.daysSinceLastCheck}d ago`}</strong>
+
+                  <div style={{ fontSize: '13px', color: '#475569', marginTop: '6px', display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                    <span>🌊 {site.waterBody} ({site.city})</span>
+                    <span>
+                      Last checked: <strong>{days === 0 ? 'Today (0d)' : days === null ? 'Never' : `${days}d ago`}</strong>
+                    </span>
+                    <span style={{ color: dueColor, fontWeight: '700' }}>
+                      🗓️ {dueText}
+                    </span>
                   </div>
                 </div>
 
@@ -104,7 +141,6 @@ export function MyStreams({ sites, adoptedSiteIds, onToggleAdopt, onStartCheck, 
                       fontWeight: '700',
                       fontSize: '13px',
                       cursor: 'pointer',
-                      boxShadow: '0 2px 4px rgba(16, 185, 129, 0.2)',
                     }}
                   >
                     📝 Start Check
@@ -121,7 +157,7 @@ export function MyStreams({ sites, adoptedSiteIds, onToggleAdopt, onStartCheck, 
                       fontSize: '13px',
                       cursor: 'pointer',
                     }}
-                    title="Remove from adopted"
+                    title="Unadopt stream"
                   >
                     ✕
                   </button>

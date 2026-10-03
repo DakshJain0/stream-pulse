@@ -18,45 +18,42 @@ export default function App() {
   const [sites, setSites] = useState(initialSitesData);
   const [activeTab, setActiveTab] = useState('map'); // 'map' | 'my-streams' | 'dashboard'
   const [selectedCity, setSelectedCity] = useState('Coimbra');
-  const [adoptedSiteIds, setAdoptedSiteIds] = useState(['COI-001']); // Pre-adopt one stream for instant demo
+  const [adoptedSiteIds, setAdoptedSiteIds] = useState(['COI-001']);
   const [focusedSite, setFocusedSite] = useState(null);
 
-  // Wizard Modal state
+  // Check Wizard State
   const [checkTargetSite, setCheckTargetSite] = useState(null);
   const [isWizardOpen, setIsWizardOpen] = useState(false);
   const [successBanner, setSuccessBanner] = useState(null);
 
   const citySites = sites.filter((site) => site.city === selectedCity);
 
-  // Toggle Adopt
   const handleToggleAdopt = (siteId) => {
     setAdoptedSiteIds((prev) =>
       prev.includes(siteId) ? prev.filter((id) => id !== siteId) : [...prev, siteId]
     );
   };
 
-  // Launch the Check Wizard
   const handleStartCheck = (site) => {
     setCheckTargetSite(site);
     setIsWizardOpen(true);
   };
 
-  // When volunteer submits check: STREAM TURNS GREEN & COVERAGE INCREASES INSTANTLY!
+  // Submitting check turns the stream GREEN (0d ago) & boosts coverage
   const handleSubmitCheck = (siteId, checkData) => {
     setSites((prevSites) =>
       prevSites.map((site) =>
         site.id === siteId
           ? {
               ...site,
-              daysSinceLastCheck: 0, // Turn fresh today!
+              daysSinceLastCheck: 0,
               lastRating: checkData.lastRating,
             }
           : site
       )
     );
 
-    // Show celebratory banner
-    setSuccessBanner(`🎉 Check recorded for ${checkTargetSite?.name}! The stream is now verified fresh and turned GREEN on the map!`);
+    setSuccessBanner(`🎉 Fresh verification recorded for ${checkTargetSite?.name}! Stream verified and updated live on the map!`);
     setTimeout(() => setSuccessBanner(null), 6000);
   };
 
@@ -75,7 +72,7 @@ export default function App() {
   return (
     <div style={{ maxWidth: '980px', margin: '0 auto', padding: '24px 16px', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#0f172a' }}>
       
-      {/* Success Notification Banner */}
+      {/* Success Notification */}
       {successBanner && (
         <div
           style={{
@@ -105,7 +102,7 @@ export default function App() {
         </div>
       )}
 
-      {/* Top Bar: Title & Disclaimer */}
+      {/* Top Header */}
       <header style={{ marginBottom: '18px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '14px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
@@ -133,7 +130,7 @@ export default function App() {
           </p>
         </div>
 
-        {/* 3 Main Tabs */}
+        {/* Navigation Tabs */}
         <div style={{ display: 'flex', gap: '4px', backgroundColor: '#e2e8f0', padding: '4px', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
           <button
             onClick={() => setActiveTab('map')}
@@ -188,7 +185,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Control Bar */}
+      {/* City Switcher Bar */}
       <div
         style={{
           display: 'flex',
@@ -281,18 +278,17 @@ export default function App() {
         />
       )}
 
-      {/* Tab 3: Dashboard */}
+      {/* Tab 3: City Dashboard */}
       {activeTab === 'dashboard' && (
-        <div style={{ marginTop: '10px' }}>
-          {Dashboard ? (
-            <Dashboard sites={sites} selectedCity={selectedCity} />
-          ) : (
-            <p>Dashboard is loading...</p>
-          )}
-        </div>
+        <Dashboard
+          sites={sites}
+          selectedCity={selectedCity}
+          onStartCheck={handleStartCheck}
+          onSelectSite={handleSelectSite}
+        />
       )}
 
-      {/* The Volunteer Check Wizard Modal */}
+      {/* Check Wizard Modal */}
       <CheckWizardModal
         site={checkTargetSite}
         isOpen={isWizardOpen}
