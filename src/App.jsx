@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import sitesData from './data/sites.json';
+import initialSitesData from './data/sites.json';
 import { StreamMap } from './features/map/StreamMap';
 import { QuestBoard } from './features/map/quests/QuestBoard';
 import { Dashboard } from './features/dashboard/Dashboard';
+import { CheckWizardModal } from './features/streamkeeper/CheckWizardModal';
+import { MyStreams } from './features/streamkeeper/MyStreams';
 
 const CITIES = {
   Coimbra: { center: [40.208, -8.43], zoom: 13, country: 'Portugal' },
@@ -13,22 +15,55 @@ const CITIES = {
 };
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('map');
+  const [sites, setSites] = useState(initialSitesData);
+  const [activeTab, setActiveTab] = useState('map'); // 'map' | 'my-streams' | 'dashboard'
   const [selectedCity, setSelectedCity] = useState('Coimbra');
-  const [adoptedSiteIds, setAdoptedSiteIds] = useState([]);
+  const [adoptedSiteIds, setAdoptedSiteIds] = useState(['COI-001']); // Pre-adopt one stream for instant demo
   const [focusedSite, setFocusedSite] = useState(null);
 
-  const citySites = sitesData.filter((site) => site.city === selectedCity);
+  // Wizard Modal state
+  const [checkTargetSite, setCheckTargetSite] = useState(null);
+  const [isWizardOpen, setIsWizardOpen] = useState(false);
+  const [successBanner, setSuccessBanner] = useState(null);
 
+  const citySites = sites.filter((site) => site.city === selectedCity);
+
+  // Toggle Adopt
   const handleToggleAdopt = (siteId) => {
     setAdoptedSiteIds((prev) =>
       prev.includes(siteId) ? prev.filter((id) => id !== siteId) : [...prev, siteId]
     );
   };
 
+  // Launch the Check Wizard
+  const handleStartCheck = (site) => {
+    setCheckTargetSite(site);
+    setIsWizardOpen(true);
+  };
+
+  // When volunteer submits check: STREAM TURNS GREEN & COVERAGE INCREASES INSTANTLY!
+  const handleSubmitCheck = (siteId, checkData) => {
+    setSites((prevSites) =>
+      prevSites.map((site) =>
+        site.id === siteId
+          ? {
+              ...site,
+              daysSinceLastCheck: 0, // Turn fresh today!
+              lastRating: checkData.lastRating,
+            }
+          : site
+      )
+    );
+
+    // Show celebratory banner
+    setSuccessBanner(`🎉 Check recorded for ${checkTargetSite?.name}! The stream is now verified fresh and turned GREEN on the map!`);
+    setTimeout(() => setSuccessBanner(null), 6000);
+  };
+
   const handleSelectSite = (site) => {
+    setSelectedCity(site.city);
+    setActiveTab('map');
     setFocusedSite(site);
-    // Smooth scroll back up to map if user is far down the page
     window.scrollTo({ top: 120, behavior: 'smooth' });
   };
 
@@ -40,11 +75,41 @@ export default function App() {
   return (
     <div style={{ maxWidth: '980px', margin: '0 auto', padding: '24px 16px', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#0f172a' }}>
       
-      {/* Top Bar: Title & Ethical Synthetic Data Disclaimer */}
+      {/* Success Notification Banner */}
+      {successBanner && (
+        <div
+          style={{
+            position: 'sticky',
+            top: '12px',
+            zIndex: 10000,
+            backgroundColor: '#065f46',
+            color: '#ffffff',
+            padding: '12px 20px',
+            borderRadius: '10px',
+            boxShadow: '0 10px 15px -3px rgba(0,0,0,0.2)',
+            marginBottom: '16px',
+            fontWeight: '600',
+            fontSize: '14px',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <span>{successBanner}</span>
+          <button
+            onClick={() => setSuccessBanner(null)}
+            style={{ background: 'none', border: 'none', color: '#fff', fontSize: '18px', cursor: 'pointer' }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
+      {/* Top Bar: Title & Disclaimer */}
       <header style={{ marginBottom: '18px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '14px' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-            <h1 style={{ margin: 0, fontSize: '28px', color: '#0f172a', fontWeight: '800', letterSpacing: '-0.02em' }}>
+            <h1 style={{ margin: 0, fontSize: '28px', color: '#0f172a', fontWeight: '800' }}>
               🌊 Urban Stream Pulse
             </h1>
             <span
@@ -59,7 +124,6 @@ export default function App() {
                 borderRadius: '6px',
                 textTransform: 'uppercase',
               }}
-              title="All sensor readings and check intervals are simulated for demonstration purposes."
             >
               🧪 Demo Data (Synthetic)
             </span>
@@ -69,12 +133,12 @@ export default function App() {
           </p>
         </div>
 
-        {/* Tab Navigation */}
+        {/* 3 Main Tabs */}
         <div style={{ display: 'flex', gap: '4px', backgroundColor: '#e2e8f0', padding: '4px', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
           <button
             onClick={() => setActiveTab('map')}
             style={{
-              padding: '8px 16px',
+              padding: '8px 14px',
               borderRadius: '6px',
               border: 'none',
               fontWeight: '700',
@@ -87,10 +151,28 @@ export default function App() {
           >
             🗺️ Map & Quests
           </button>
+
+          <button
+            onClick={() => setActiveTab('my-streams')}
+            style={{
+              padding: '8px 14px',
+              borderRadius: '6px',
+              border: 'none',
+              fontWeight: '700',
+              fontSize: '13px',
+              cursor: 'pointer',
+              backgroundColor: activeTab === 'my-streams' ? '#ffffff' : 'transparent',
+              color: activeTab === 'my-streams' ? '#0f172a' : '#64748b',
+              boxShadow: activeTab === 'my-streams' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+            }}
+          >
+            ⭐ My Streams ({adoptedSiteIds.length})
+          </button>
+
           <button
             onClick={() => setActiveTab('dashboard')}
             style={{
-              padding: '8px 16px',
+              padding: '8px 14px',
               borderRadius: '6px',
               border: 'none',
               fontWeight: '700',
@@ -106,7 +188,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Control Bar: High-Contrast City Switcher & Freshness Metric */}
+      {/* Control Bar */}
       <div
         style={{
           display: 'flex',
@@ -164,7 +246,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* View 1: Map & Quests */}
+      {/* Tab 1: Map & Quests */}
       {activeTab === 'map' && (
         <>
           <StreamMap
@@ -173,6 +255,7 @@ export default function App() {
             zoom={CITIES[selectedCity].zoom}
             adoptedSiteIds={adoptedSiteIds}
             onToggleAdopt={handleToggleAdopt}
+            onStartCheck={handleStartCheck}
             focusedSite={focusedSite}
           />
 
@@ -180,22 +263,42 @@ export default function App() {
             sites={citySites}
             adoptedSiteIds={adoptedSiteIds}
             onToggleAdopt={handleToggleAdopt}
+            onStartCheck={handleStartCheck}
             onSelectSite={handleSelectSite}
             focusedSiteId={focusedSite?.id}
           />
         </>
       )}
 
-      {/* View 2: Dashboard */}
+      {/* Tab 2: My Streams */}
+      {activeTab === 'my-streams' && (
+        <MyStreams
+          sites={sites}
+          adoptedSiteIds={adoptedSiteIds}
+          onToggleAdopt={handleToggleAdopt}
+          onStartCheck={handleStartCheck}
+          onSelectSite={handleSelectSite}
+        />
+      )}
+
+      {/* Tab 3: Dashboard */}
       {activeTab === 'dashboard' && (
         <div style={{ marginTop: '10px' }}>
           {Dashboard ? (
-            <Dashboard sites={sitesData} selectedCity={selectedCity} />
+            <Dashboard sites={sites} selectedCity={selectedCity} />
           ) : (
             <p>Dashboard is loading...</p>
           )}
         </div>
       )}
+
+      {/* The Volunteer Check Wizard Modal */}
+      <CheckWizardModal
+        site={checkTargetSite}
+        isOpen={isWizardOpen}
+        onClose={() => setIsWizardOpen(false)}
+        onSubmitCheck={handleSubmitCheck}
+      />
     </div>
   );
 }

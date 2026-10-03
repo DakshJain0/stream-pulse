@@ -1,7 +1,7 @@
 import React from 'react';
 import { computePriority } from './computePriority';
 
-export function QuestBoard({ sites, adoptedSiteIds, onToggleAdopt, onSelectSite, focusedSiteId }) {
+export function QuestBoard({ sites, adoptedSiteIds, onToggleAdopt, onStartCheck, onSelectSite, focusedSiteId }) {
   const prioritizedQuests = sites
     .map((site) => ({
       ...site,
@@ -18,7 +18,7 @@ export function QuestBoard({ sites, adoptedSiteIds, onToggleAdopt, onSelectSite,
             🎯 Urgent Stream Quests (Top 10)
           </h3>
           <p style={{ margin: 0, fontSize: '13px', color: '#64748b' }}>
-            Ranked by data staleness and ecological priority • Click any quest to locate on map
+            Ranked by data staleness • Click to zoom to pin or start a field verification
           </p>
         </div>
         <span style={{ fontSize: '12px', fontWeight: '600', color: '#2563eb', backgroundColor: '#eff6ff', padding: '4px 10px', borderRadius: '6px' }}>
@@ -52,13 +52,15 @@ export function QuestBoard({ sites, adoptedSiteIds, onToggleAdopt, onSelectSite,
                 boxShadow: isFocused ? '0 4px 12px rgba(59, 130, 246, 0.15)' : '0 1px 3px rgba(0,0,0,0.04)',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease-in-out',
+                flexWrap: 'wrap',
+                gap: '12px',
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', flex: 1, paddingRight: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', flex: 1, minWidth: '280px' }}>
                 <span style={{ fontWeight: '800', fontSize: '16px', color: isFocused ? '#2563eb' : '#94a3b8', minWidth: '28px', marginTop: '2px' }}>
                   #{index + 1}
                 </span>
-                <div style={{ flex: 1 }}>
+                <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                     <span style={{ fontWeight: '700', color: '#0f172a', fontSize: '15px' }}>{quest.name}</span>
                     <span style={{ fontSize: '12px', color: '#64748b' }}>• {quest.waterBody}</span>
@@ -84,37 +86,38 @@ export function QuestBoard({ sites, adoptedSiteIds, onToggleAdopt, onSelectSite,
 
               <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }} onClick={(e) => e.stopPropagation()}>
                 <button
-                  onClick={() => onSelectSite(quest)}
+                  onClick={() => onStartCheck(quest)}
                   style={{
-                    padding: '6px 12px',
-                    backgroundColor: '#f1f5f9',
-                    color: '#2563eb',
-                    border: '1px solid #cbd5e1',
+                    padding: '7px 12px',
+                    backgroundColor: '#10b981',
+                    color: '#ffffff',
+                    border: 'none',
                     borderRadius: '6px',
-                    fontWeight: '600',
+                    fontWeight: '700',
                     fontSize: '12px',
                     cursor: 'pointer',
+                    boxShadow: '0 2px 4px rgba(16, 185, 129, 0.2)',
                   }}
-                  title="Zoom map to this stream"
+                  title="Verify stream health now"
                 >
-                  📍 Locate
+                  📝 Start Check
                 </button>
 
                 <button
                   onClick={() => onToggleAdopt(quest.id)}
                   style={{
-                    padding: '6px 14px',
-                    backgroundColor: isAdopted ? '#10b981' : '#ffffff',
-                    color: isAdopted ? '#ffffff' : '#0f172a',
-                    border: isAdopted ? '1px solid #059669' : '1px solid #cbd5e1',
+                    padding: '7px 12px',
+                    backgroundColor: isAdopted ? '#f1f5f9' : '#ffffff',
+                    color: isAdopted ? '#475569' : '#0f172a',
+                    border: '1px solid #cbd5e1',
                     borderRadius: '6px',
                     fontWeight: '600',
-                    fontSize: '13px',
+                    fontSize: '12px',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
                   }}
                 >
-                  {isAdopted ? 'Adopted ✓' : 'Adopt'}
+                  {isAdopted ? 'Adopted ✓' : '⭐ Adopt'}
                 </button>
               </div>
             </div>

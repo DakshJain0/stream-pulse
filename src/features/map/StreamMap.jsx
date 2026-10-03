@@ -3,7 +3,6 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { createPinIcon, getPinColor } from './mapIcons';
 
-// Re-centers map when the user picks a new city
 function CityController({ center, zoom }) {
   const map = useMap();
   useEffect(() => {
@@ -12,7 +11,6 @@ function CityController({ center, zoom }) {
   return null;
 }
 
-// Smoothly flies to and opens popup when a user clicks a quest card
 function FocusController({ focusedSite, markerRefs }) {
   const map = useMap();
   useEffect(() => {
@@ -30,7 +28,7 @@ function FocusController({ focusedSite, markerRefs }) {
   return null;
 }
 
-export function StreamMap({ sites, center, zoom, adoptedSiteIds, onToggleAdopt, focusedSite }) {
+export function StreamMap({ sites, center, zoom, adoptedSiteIds, onToggleAdopt, onStartCheck, focusedSite }) {
   const markerRefs = useRef({});
 
   return (
@@ -74,36 +72,50 @@ export function StreamMap({ sites, center, zoom, adoptedSiteIds, onToggleAdopt, 
                     <div>
                       <strong>Freshness: </strong>
                       <span style={{ color: pinColor, fontWeight: 'bold' }}>
-                        {site.daysSinceLastCheck === null ? 'Never checked' : `${site.daysSinceLastCheck} days ago`}
+                        {site.daysSinceLastCheck === 0 ? 'Verified today! (0d)' : site.daysSinceLastCheck === null ? 'Never checked' : `${site.daysSinceLastCheck} days ago`}
                       </span>
                     </div>
                     <div>
                       <strong>Last rating: </strong>
                       <span>{site.lastRating || 'Unrecorded'}</span>
                     </div>
-                    <div>
-                      <strong>Access: </strong>
-                      <span>{site.accessibility?.replace('_', ' ')}</span>
-                    </div>
                   </div>
 
-                  <button
-                    onClick={() => onToggleAdopt(site.id)}
-                    style={{
-                      width: '100%',
-                      padding: '8px 12px',
-                      backgroundColor: isAdopted ? '#10b981' : '#2563eb',
-                      color: 'white',
-                      border: 'none',
-                      borderRadius: '6px',
-                      fontWeight: '600',
-                      cursor: 'pointer',
-                      fontSize: '13px',
-                      transition: 'background-color 0.2s',
-                    }}
-                  >
-                    {isAdopted ? 'Adopted ✓' : '⭐ Adopt Stream'}
-                  </button>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <button
+                      onClick={() => onStartCheck(site)}
+                      style={{
+                        width: '100%',
+                        padding: '8px 12px',
+                        backgroundColor: '#10b981',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '6px',
+                        fontWeight: '700',
+                        cursor: 'pointer',
+                        fontSize: '13px',
+                      }}
+                    >
+                      📝 Start Check
+                    </button>
+
+                    <button
+                      onClick={() => onToggleAdopt(site.id)}
+                      style={{
+                        width: '100%',
+                        padding: '6px 12px',
+                        backgroundColor: isAdopted ? '#f1f5f9' : '#2563eb',
+                        color: isAdopted ? '#475569' : '#ffffff',
+                        border: isAdopted ? '1px solid #cbd5e1' : 'none',
+                        borderRadius: '6px',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        fontSize: '12px',
+                      }}
+                    >
+                      {isAdopted ? 'Adopted ✓' : '⭐ Adopt Stream'}
+                    </button>
+                  </div>
                 </div>
               </Popup>
             </Marker>
@@ -111,7 +123,7 @@ export function StreamMap({ sites, center, zoom, adoptedSiteIds, onToggleAdopt, 
         })}
       </MapContainer>
 
-      {/* Floating Map Legend */}
+      {/* Floating Legend */}
       <div
         style={{
           position: 'absolute',
@@ -123,7 +135,6 @@ export function StreamMap({ sites, center, zoom, adoptedSiteIds, onToggleAdopt, 
           padding: '10px 14px',
           borderRadius: '10px',
           border: '1px solid #cbd5e1',
-          boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
           fontSize: '12px',
           color: '#0f172a',
           display: 'flex',
@@ -131,7 +142,7 @@ export function StreamMap({ sites, center, zoom, adoptedSiteIds, onToggleAdopt, 
           gap: '6px',
         }}
       >
-        <div style={{ fontWeight: 'bold', borderBottom: '1px solid #e2e8f0', paddingBottom: '4px', marginBottom: '2px' }}>
+        <div style={{ fontWeight: 'bold', borderBottom: '1px solid #e2e8f0', paddingBottom: '4px' }}>
           Pin Freshness
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
