@@ -1,0 +1,2402 @@
+[
+  {
+    "id": "COI-001",
+    "name": "Parque Verde do Mondego",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.212571,
+      "lng": -8.452749
+    },
+    "waterBody": "Rio Mondego",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-002",
+    "name": "Ponte de Santa Clara Pier",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.194351,
+      "lng": -8.438875
+    },
+    "waterBody": "Ribeira de Coselhas",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-003",
+    "name": "Mata do Choupal Riparian Buffer",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.217424,
+      "lng": -8.407131
+    },
+    "waterBody": "Rio Ceira",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-004",
+    "name": "Foz do Ceira Confluence",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.225209,
+      "lng": -8.448414
+    },
+    "waterBody": "Ribeira de Frades",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-005",
+    "name": "Coselhas Urban Canal",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.201696,
+      "lng": -8.452414
+    },
+    "waterBody": "Valag\u00e3o do Choupal",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-006",
+    "name": "Lapa dos Esteios Bend",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.191532,
+      "lng": -8.419125
+    },
+    "waterBody": "Rio Mondego",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-007",
+    "name": "Penedo da Saudade Runoff",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.181927,
+      "lng": -8.440581
+    },
+    "waterBody": "Ribeira de Coselhas",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-008",
+    "name": "Portela Riverside Walkway",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.213094,
+      "lng": -8.416354
+    },
+    "waterBody": "Rio Ceira",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-009",
+    "name": "Santa Cruz Stream Inlet",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.191622,
+      "lng": -8.413251
+    },
+    "waterBody": "Ribeira de Frades",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-010",
+    "name": "Rebolim Natural Beach",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.221072,
+      "lng": -8.454045
+    },
+    "waterBody": "Valag\u00e3o do Choupal",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-011",
+    "name": "Almedina Stormwater Outlet",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.220891,
+      "lng": -8.40563
+    },
+    "waterBody": "Rio Mondego",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-012",
+    "name": "Quinta das L\u00e1grimas Streamlet",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.197613,
+      "lng": -8.443616
+    },
+    "waterBody": "Ribeira de Coselhas",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-013",
+    "name": "Bencanta Agricultural Reach",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.228461,
+      "lng": -8.430938
+    },
+    "waterBody": "Rio Ceira",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-014",
+    "name": "Taveiro Lowland Stream",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.185237,
+      "lng": -8.44773
+    },
+    "waterBody": "Ribeira de Frades",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-015",
+    "name": "Eiras Industrial Canal",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.222975,
+      "lng": -8.412239
+    },
+    "waterBody": "Valag\u00e3o do Choupal",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-016",
+    "name": "Pedrulha Creek",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.220956,
+      "lng": -8.403419
+    },
+    "waterBody": "Rio Mondego",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-017",
+    "name": "Santo Ant\u00f3nio dos Olivais Gully",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.207411,
+      "lng": -8.386382
+    },
+    "waterBody": "Ribeira de Coselhas",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-018",
+    "name": "Celas Brook Walkway",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.199527,
+      "lng": -8.415857
+    },
+    "waterBody": "Rio Ceira",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-019",
+    "name": "Polo II Riverfront Steps",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.22207,
+      "lng": -8.411204
+    },
+    "waterBody": "Ribeira de Frades",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "COI-020",
+    "name": "Torre do Mondego Reach",
+    "city": "Coimbra",
+    "country": "Portugal",
+    "coordinates": {
+      "lat": 40.223685,
+      "lng": -8.414085
+    },
+    "waterBody": "Valag\u00e3o do Choupal",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-001",
+    "name": "Ponte Leproso Heritage Reach",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.140929,
+      "lng": 14.750708
+    },
+    "waterBody": "Fiume Calore",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-002",
+    "name": "Confluenza Calore-Sabato",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.117095,
+      "lng": 14.767757
+    },
+    "waterBody": "Fiume Sabato",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-003",
+    "name": "Parco Cellarulo Riparian Zone",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.10969,
+      "lng": 14.763795
+    },
+    "waterBody": "Torrente San Nicola",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-004",
+    "name": "Ponte Vanvitelli Flow Gauge",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.11075,
+      "lng": 14.766958
+    },
+    "waterBody": "Torrente Tammarecchia",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-005",
+    "name": "San Nicola Urban Brook",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.137484,
+      "lng": 14.773038
+    },
+    "waterBody": "Vallone San Vito",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-006",
+    "name": "Rione Ferrovia Stream Reach",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.124209,
+      "lng": 14.762165
+    },
+    "waterBody": "Fiume Calore",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-007",
+    "name": "Ponte delle Maurelle",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.119049,
+      "lng": 14.813066
+    },
+    "waterBody": "Fiume Sabato",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-008",
+    "name": "Contrada Pezzapiana Creek",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.138102,
+      "lng": 14.790139
+    },
+    "waterBody": "Torrente San Nicola",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-009",
+    "name": "Santa Clementina Riverside",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.114257,
+      "lng": 14.798539
+    },
+    "waterBody": "Torrente Tammarecchia",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-010",
+    "name": "Madonna delle Grazie Floodplain",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.11387,
+      "lng": 14.774062
+    },
+    "waterBody": "Vallone San Vito",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-011",
+    "name": "Sant'Angelo a Sasso Runoff",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.155176,
+      "lng": 14.7923
+    },
+    "waterBody": "Fiume Calore",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-012",
+    "name": "Torrente Corvo Inflow",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.133547,
+      "lng": 14.795423
+    },
+    "waterBody": "Fiume Sabato",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-013",
+    "name": "Capodimonte Ridge Stream",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.147843,
+      "lng": 14.80182
+    },
+    "waterBody": "Torrente San Nicola",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-014",
+    "name": "Pellegrino River Walkway",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.117152,
+      "lng": 14.749747
+    },
+    "waterBody": "Torrente Tammarecchia",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-015",
+    "name": "San Vito Torrential Bed",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.121473,
+      "lng": 14.766242
+    },
+    "waterBody": "Vallone San Vito",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-016",
+    "name": "Olivola Agricultural Drain",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.116249,
+      "lng": 14.813504
+    },
+    "waterBody": "Fiume Calore",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-017",
+    "name": "Ponticelli Bridge Node",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.149518,
+      "lng": 14.769527
+    },
+    "waterBody": "Fiume Sabato",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-018",
+    "name": "Arco Traiano Urban Trench",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.138472,
+      "lng": 14.775194
+    },
+    "waterBody": "Torrente San Nicola",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-019",
+    "name": "Foce Tammarecchia Wetland",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.151427,
+      "lng": 14.77962
+    },
+    "waterBody": "Torrente Tammarecchia",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "BEN-020",
+    "name": "Contrada Pantano Meander",
+    "city": "Benevento",
+    "country": "Italy",
+    "coordinates": {
+      "lat": 41.118944,
+      "lng": 14.764764
+    },
+    "waterBody": "Vallone San Vito",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-001",
+    "name": "Graslei Waterfront Basin",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.057368,
+      "lng": 3.700792
+    },
+    "waterBody": "Leie River",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-002",
+    "name": "Korenlei Historic Quay",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.058529,
+      "lng": 3.745248
+    },
+    "waterBody": "Schelde River",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-003",
+    "name": "Portus Ganda Confluence Marina",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.04927,
+      "lng": 3.697752
+    },
+    "waterBody": "Coupure Canal",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-004",
+    "name": "Coupure Links Ecobridge",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.079177,
+      "lng": 3.718067
+    },
+    "waterBody": "Lieve Canal",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-005",
+    "name": "Visserij Canal Boardwalk",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.033845,
+      "lng": 3.685698
+    },
+    "waterBody": "Visserijvaart",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-006",
+    "name": "Muinkpark Watercourse",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.034782,
+      "lng": 3.726321
+    },
+    "waterBody": "Leie River",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-007",
+    "name": "Baudelo Park Urban Meander",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.068904,
+      "lng": 3.711951
+    },
+    "waterBody": "Schelde River",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-008",
+    "name": "Blaarmeersen Lake Inflow",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.032476,
+      "lng": 3.709113
+    },
+    "waterBody": "Coupure Canal",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-009",
+    "name": "Lievekaai Heritage Lock",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.079106,
+      "lng": 3.719438
+    },
+    "waterBody": "Lieve Canal",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-010",
+    "name": "Keizerpark Schelde Bend",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.077854,
+      "lng": 3.742655
+    },
+    "waterBody": "Visserijvaart",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-011",
+    "name": "Stropkaai River Crossing",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.029874,
+      "lng": 3.732851
+    },
+    "waterBody": "Leie River",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-012",
+    "name": "Gentbrugse Meersen Wetland",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.063386,
+      "lng": 3.719988
+    },
+    "waterBody": "Schelde River",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-013",
+    "name": "Zuiderdokken Canal Spur",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.042641,
+      "lng": 3.727267
+    },
+    "waterBody": "Coupure Canal",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-014",
+    "name": "Verbrande Brug Drain",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.034878,
+      "lng": 3.712834
+    },
+    "waterBody": "Lieve Canal",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-015",
+    "name": "Lousbergskaai Flow Station",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.051986,
+      "lng": 3.749167
+    },
+    "waterBody": "Visserijvaart",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-016",
+    "name": "Tolhuis Marina Inlet",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.073093,
+      "lng": 3.700837
+    },
+    "waterBody": "Leie River",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-017",
+    "name": "Blaisantvest Canal Reach",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.054329,
+      "lng": 3.694906
+    },
+    "waterBody": "Schelde River",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-018",
+    "name": "Claeys-Bouuaert Streamlet",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.074931,
+      "lng": 3.743336
+    },
+    "waterBody": "Coupure Canal",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-019",
+    "name": "Rooigem Canal Junction",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.044222,
+      "lng": 3.727126
+    },
+    "waterBody": "Lieve Canal",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "GHE-020",
+    "name": "Westerbegraafplaats Ditch",
+    "city": "Ghent",
+    "country": "Belgium",
+    "coordinates": {
+      "lat": 51.059749,
+      "lng": 3.693099
+    },
+    "waterBody": "Visserijvaart",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-001",
+    "name": "Nedre Foss Falls & Fish Ladder",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.927026,
+      "lng": 10.754957
+    },
+    "waterBody": "Akerselva",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-002",
+    "name": "Gr\u00fcnerl\u00f8kka River Trail",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.927831,
+      "lng": 10.754325
+    },
+    "waterBody": "Alna River",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-003",
+    "name": "Nydalen Urban Plunge Basin",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.888929,
+      "lng": 10.739891
+    },
+    "waterBody": "Lysakerelva",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-004",
+    "name": "M\u00f8llefossen Historic Reach",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.889874,
+      "lng": 10.782237
+    },
+    "waterBody": "Hovinbekken",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-005",
+    "name": "Frysja / Brekkedammen Reservoir",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.932836,
+      "lng": 10.775417
+    },
+    "waterBody": "Frognerelva",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-006",
+    "name": "Ankerbrua Fairy Tale Bridge",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.904276,
+      "lng": 10.721255
+    },
+    "waterBody": "Akerselva",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-007",
+    "name": "Vigelandsparken Frogner Pond",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.9328,
+      "lng": 10.783486
+    },
+    "waterBody": "Alna River",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-008",
+    "name": "Hovinbekken Daylighted Reach",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.893183,
+      "lng": 10.751219
+    },
+    "waterBody": "Lysakerelva",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-009",
+    "name": "Alna Kv\u00e6rnerbyen Rapids",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.892361,
+      "lng": 10.770442
+    },
+    "waterBody": "Hovinbekken",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-010",
+    "name": "Lysaker Pier Estuary Inlet",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.927192,
+      "lng": 10.726187
+    },
+    "waterBody": "Frognerelva",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-011",
+    "name": "Vaterland Riverside Steps",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.912664,
+      "lng": 10.755686
+    },
+    "waterBody": "Akerselva",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-012",
+    "name": "Bj\u00f8lsen Historic Mill Stream",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.902153,
+      "lng": 10.77827
+    },
+    "waterBody": "Alna River",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-013",
+    "name": "Maridalsvannet Outflow Node",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.910057,
+      "lng": 10.732026
+    },
+    "waterBody": "Lysakerelva",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-014",
+    "name": "Svartdalen Canyon Creek",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.915865,
+      "lng": 10.768295
+    },
+    "waterBody": "Hovinbekken",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-015",
+    "name": "Groruddalen Greenway Stream",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.898958,
+      "lng": 10.73902
+    },
+    "waterBody": "Frognerelva",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-016",
+    "name": "Teglverksdammen Urban Wetland",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.938657,
+      "lng": 10.762691
+    },
+    "waterBody": "Akerselva",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-017",
+    "name": "Jar Falls Upper Reach",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.910805,
+      "lng": 10.75343
+    },
+    "waterBody": "Alna River",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-018",
+    "name": "Engebr\u00e5ten Forest Runoff",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.89495,
+      "lng": 10.732929
+    },
+    "waterBody": "Lysakerelva",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-019",
+    "name": "Ensj\u00f8 Water Feature Tributary",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.905804,
+      "lng": 10.758382
+    },
+    "waterBody": "Hovinbekken",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "OSL-020",
+    "name": "Aker Brygge Harbor Confluence",
+    "city": "Oslo",
+    "country": "Norway",
+    "coordinates": {
+      "lat": 59.900406,
+      "lng": 10.732615
+    },
+    "waterBody": "Frognerelva",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-001",
+    "name": "Pont Neuf Historic Bridgehead",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.58325,
+      "lng": 1.453377
+    },
+    "waterBody": "Garonne",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-002",
+    "name": "Prairie des Filtres Wetland Edge",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.591147,
+      "lng": 1.472579
+    },
+    "waterBody": "Canal du Midi",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-003",
+    "name": "Pont Saint-Pierre Reach",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.622682,
+      "lng": 1.41416
+    },
+    "waterBody": "Canal de Brienne",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-004",
+    "name": "Port de l'Embouchure Triple Canal",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.5916,
+      "lng": 1.456028
+    },
+    "waterBody": "Touch River",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-005",
+    "name": "Port Saint-Sauveur Mooring",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.590412,
+      "lng": 1.418462
+    },
+    "waterBody": "Hers-Mort",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-006",
+    "name": "\u00cele du Ramier Eco-Park",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.626476,
+      "lng": 1.449173
+    },
+    "waterBody": "Garonne",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "high",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-007",
+    "name": "Confluence Touch-Garonne",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.603334,
+      "lng": 1.464123
+    },
+    "waterBody": "Canal du Midi",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-008",
+    "name": "Canal de Brienne Shaded Canal",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.620075,
+      "lng": 1.422529
+    },
+    "waterBody": "Canal de Brienne",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-009",
+    "name": "Pont des Catalans Bank",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.584547,
+      "lng": 1.439374
+    },
+    "waterBody": "Touch River",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-010",
+    "name": "Ramonville Canal Basin",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.600879,
+      "lng": 1.441892
+    },
+    "waterBody": "Hers-Mort",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-011",
+    "name": "Saint-Michel Urban Culvert",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.616154,
+      "lng": 1.456336
+    },
+    "waterBody": "Garonne",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-012",
+    "name": "Hers-Mort Lowland Meander",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.628908,
+      "lng": 1.416089
+    },
+    "waterBody": "Canal du Midi",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-013",
+    "name": "Blagnac River Promenade",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.599831,
+      "lng": 1.432951
+    },
+    "waterBody": "Canal de Brienne",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-014",
+    "name": "Peipin Forest Runoff",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.622784,
+      "lng": 1.426606
+    },
+    "waterBody": "Touch River",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "medium",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-015",
+    "name": "Empalot Flood Channel",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.58921,
+      "lng": 1.440603
+    },
+    "waterBody": "Hers-Mort",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-016",
+    "name": "Garonne Amont Observational Pier",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.600794,
+      "lng": 1.428698
+    },
+    "waterBody": "Garonne",
+    "streamType": "urban_river",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-017",
+    "name": "Sesqui\u00e8res Lake Drain",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.59219,
+      "lng": 1.473829
+    },
+    "waterBody": "Canal du Midi",
+    "streamType": "headwater",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "public_park",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-018",
+    "name": "Rangueil University Creek",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.601857,
+      "lng": 1.469494
+    },
+    "waterBody": "Canal de Brienne",
+    "streamType": "canal",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "bridge_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-019",
+    "name": "Tournefeuille Touch Walkway",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.607216,
+      "lng": 1.412741
+    },
+    "waterBody": "Touch River",
+    "streamType": "estuary_tributary",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "trail_access",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  },
+  {
+    "id": "TOU-020",
+    "name": "Bazacle Hydro Weir Reach",
+    "city": "Toulouse",
+    "country": "France",
+    "coordinates": {
+      "lat": 43.629664,
+      "lng": 1.467722
+    },
+    "waterBody": "Hers-Mort",
+    "streamType": "wetland_inflow",
+    "targetParameters": [
+      "water_temp",
+      "pH",
+      "dissolved_oxygen",
+      "turbidity",
+      "macroinvertebrates",
+      "wellbeing_rating"
+    ],
+    "accessibility": "quay_edge",
+    "priorityLevel": "normal",
+    "source": "synthetic",
+    "createdAt": "2026-09-01T08:00:00Z"
+  }
+]
