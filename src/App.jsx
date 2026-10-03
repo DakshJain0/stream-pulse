@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import sitesData from './data/sites.json';
 import { StreamMap } from './features/map/StreamMap';
 import { QuestBoard } from './features/map/quests/QuestBoard';
+import { useStreamStore } from './lib/store';
 
 // Import Laksh's Dashboard components
 import { Dashboard } from './features/dashboard/Dashboard';
@@ -17,20 +18,20 @@ const CITIES = {
 export default function App() {
   const [activeTab, setActiveTab] = useState('map'); // 'map' or 'dashboard'
   const [selectedCity, setSelectedCity] = useState('Coimbra');
-  const [adoptedSiteIds, setAdoptedSiteIds] = useState([]);
+  const { adoptedSiteIds, streaks, toggleAdoptSite, resetDemoData } = useStreamStore();
 
   const citySites = sitesData.filter((site) => site.city === selectedCity);
-
-  const handleToggleAdopt = (siteId) => {
-    setAdoptedSiteIds((prev) =>
-      prev.includes(siteId) ? prev.filter((id) => id !== siteId) : [...prev, siteId]
-    );
-  };
 
   const freshSites = citySites.filter(
     (s) => s.daysSinceLastCheck !== null && s.daysSinceLastCheck < 30
   ).length;
   const freshnessPercent = citySites.length ? Math.round((freshSites / citySites.length) * 100) : 0;
+
+  const handleReset = () => {
+    if (window.confirm('Reset all demo data back to default initial state?')) {
+      resetDemoData();
+    }
+  };
 
   return (
     <div style={{ maxWidth: '960px', margin: '0 auto', padding: '20px', fontFamily: 'system-ui, sans-serif' }}>
