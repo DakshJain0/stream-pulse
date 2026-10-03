@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import sitesData from './data/sites.json';
 import { StreamMap } from './features/map/StreamMap';
 import { QuestBoard } from './features/map/quests/QuestBoard';
-import { useStreamStore } from './lib/store';
 
 // Import Laksh's Dashboard components
 import { Dashboard } from './features/dashboard/Dashboard';
@@ -18,20 +17,21 @@ const CITIES = {
 export default function App() {
   const [activeTab, setActiveTab] = useState('map'); // 'map' or 'dashboard'
   const [selectedCity, setSelectedCity] = useState('Coimbra');
-  const { adoptedSiteIds, streaks, toggleAdoptSite, resetDemoData } = useStreamStore();
+  const [adoptedSiteIds, setAdoptedSiteIds] = useState([]);
 
   const citySites = sitesData.filter((site) => site.city === selectedCity);
+
+  // The missing function that caused the error:
+  const handleToggleAdopt = (siteId) => {
+    setAdoptedSiteIds((prev) =>
+      prev.includes(siteId) ? prev.filter((id) => id !== siteId) : [...prev, siteId]
+    );
+  };
 
   const freshSites = citySites.filter(
     (s) => s.daysSinceLastCheck !== null && s.daysSinceLastCheck < 30
   ).length;
   const freshnessPercent = citySites.length ? Math.round((freshSites / citySites.length) * 100) : 0;
-
-  const handleReset = () => {
-    if (window.confirm('Reset all demo data back to default initial state?')) {
-      resetDemoData();
-    }
-  };
 
   return (
     <div style={{ maxWidth: '960px', margin: '0 auto', padding: '20px', fontFamily: 'system-ui, sans-serif' }}>
@@ -131,7 +131,7 @@ export default function App() {
         </div>
       </div>
 
-      {/* Tab 1: Your Map & Quests */}
+      {/* Tab 1: Map & Quests */}
       {activeTab === 'map' && (
         <>
           <StreamMap
@@ -156,7 +156,7 @@ export default function App() {
           {Dashboard ? (
             <Dashboard sites={sitesData} selectedCity={selectedCity} />
           ) : (
-            <p>Dashboard component is loading...</p>
+            <p>Dashboard is loading...</p>
           )}
         </div>
       )}
